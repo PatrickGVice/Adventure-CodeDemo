@@ -1,0 +1,17 @@
+extends layout
+
+block header
+  script(src='/javascripts/adventure.js')
+
+block content
+  h1(id="title") Room Name
+  p(id="description") Room Description
+  p(id="activity") Room Activity
+  p Go to:
+  div(id="exitList").btn-group
+    button(type="button").btn.btn-default.exits Exits
+  h4 Other Players In this Room:
+  p#players
+  br
+  form(action="/quitG", method="post")
+     button(type="submit") Quit

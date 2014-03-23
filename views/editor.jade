@@ -1,0 +1,38 @@
+extends layout
+
+block header
+  script(src='/javascripts/editor.js')
+
+block content
+  h1(id="title") Adventure Game Editor
+
+  h2 Editor: #{editorName}
+
+  div.contorl-group
+      label.contorl-label(for="roomMenu") Room Menu:
+      div.controls
+        select#menu(type="select")
+
+
+  form.form-horizontal(action="/updateRoom", method="post")
+    fieldset
+      div.control-group
+        label.control-label(for="roomName") Room Name:
+        div.controls
+          textarea#roomName(name="roomName")
+      div.control-group
+        label.control-label(for="description") Description:
+        div.controls
+          textarea#description(name="description")
+      div.control-group
+        label.control-label(for="activity") Activity:
+        div.controls
+          textarea#activity(name="activity")
+      div.control-group
+        label.control-label(for="exits") Exits:
+        div.controls
+        textarea#exits(name="exits")
+      div
+        button(type="submit") Save
+        button#quit(type="button") Quit
+        button#loadRoom(type="button") Load Room
